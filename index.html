@@ -90,27 +90,33 @@
     </style>
 </head>
 <body>
-    <nav>
+    <header>
         <div class="logo">My Portfolio</div>
         <button class="menu-toggle" id="menuToggle">☰</button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-        </ul>
-    </nav>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+        </nav>
+    </header>
 
     <main>
         <h1>Welcome to My Portfolio</h1>
-        <p>Explore my work and learn more about me.</p>
+        <p>This is a responsive webpage that adapts to different screen sizes.</p>
     </main>
 
     <script>
         const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+        const navMenu = document.getElementById('navMenu');
 
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
